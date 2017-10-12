@@ -1,10 +1,11 @@
 package lab2.Crossword;
 
 import java.io.*;
+import java.util.Collection;
 import java.util.LinkedList;
 
 public class CwDB  {
-    protected LinkedList<Entry> dict;
+    public LinkedList<Entry> dict;
     public CwDB(String filename) throws IOException{
         this.dict=new LinkedList<Entry>();
     createDB(filename);
@@ -17,8 +18,7 @@ public class CwDB  {
     }
     public Entry get(String word){return new Entry("g", "o");}
     public void remove(String word){}
-    public void saveDB(String filename){
-    }
+    public void saveDB(String filename){ }
     public int getSize(){
         return 1;
     }
@@ -30,6 +30,7 @@ public class CwDB  {
             String clue=br.readLine();
             add(word,clue);
         }while((tmp=br.readLine())!=null);
+        br.close();
     }
     public void Print(){
         for(Entry x:dict)
