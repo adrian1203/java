@@ -1,7 +1,8 @@
-package lab2.Crossword;
+package lab2.Crossword.dictionary;
+
+import lab2.Crossword.dictionary.Entry;
 
 import java.io.*;
-import java.util.Collection;
 import java.util.LinkedList;
 
 public class CwDB  {

@@ -1,7 +1,6 @@
-package lab2.Crossword;
+package lab2.Crossword.dictionary;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Random;
@@ -75,5 +74,15 @@ public class InteliCwDB extends CwDB {
             //System.out.println(i);
         }*/
         Collections.sort(dict);
+    }
+
+    public static class main {
+        public static void main(String [] args)throws IOException{
+            //CwDB tmp=new CwDB("C:/Users/Adrian/Desktop/cwdb.txt");
+            InteliCwDB tmp1=new InteliCwDB("C:/Users/Adrian/Desktop/cwdb.txt");
+            //Entry cos=tmp1.getRandom("^A.*");
+            tmp1.Print();
+
+        }
     }
 }

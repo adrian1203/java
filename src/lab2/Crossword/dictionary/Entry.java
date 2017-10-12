@@ -1,4 +1,4 @@
-package lab2.Crossword;
+package lab2.Crossword.dictionary;
 
 public class Entry implements Comparable<Entry>{
     private String word;
