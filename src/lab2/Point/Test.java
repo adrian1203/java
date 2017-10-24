@@ -10,7 +10,7 @@ public class Test {
         LinkedList<Punkt3D> punkty=new LinkedList<Punkt3D>();
         int button = 0;
         while (button != 4) {
-            System.out.println("Wybierz odpowiedni numer \n1.Wczytaj punkt 3D \n 2.Wyświetl wszytstkie punkty \n 3.Oblcz odległośc \n 4.Zakończ");
+            System.out.println("Wybierz odpowiedni numer \n 1.Wczytaj punkt 3D \n 2.Wyświetl wszytstkie punkty \n 3.Oblcz odległośc \n 4.Zakończ");
             button= JIn.getInt();
             if(button==1){
                 System.out.println("Podaj współrzędne punktu:");
@@ -20,7 +20,7 @@ public class Test {
             }
             if(button==2){
                 for(Punkt3D x: punkty){
-                    System.out.println("Współrzędne punktu: "+x.getX()+ " "+x.getY()+" "+x.getZ());
+                    System.out.println("Współrzędne punktu: "+x.getX()+ ","+x.getY()+","+x.getZ());
                 }
             }
             if(button==3 && punkty.size()>1){

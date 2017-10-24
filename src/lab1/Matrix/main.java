@@ -1,3 +1,4 @@
+/*
 package lab1.Matrix;
 import myPackage.*;
 public class main {
@@ -17,3 +18,4 @@ public class main {
         matrix1.mul(matrix2).printMatrix();
     }
 }
+*/

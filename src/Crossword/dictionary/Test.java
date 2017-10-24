@@ -1,4 +1,4 @@
-package lab2.Crossword.dictionary;
+package Crossword.dictionary;
 
 import java.io.IOException;
 

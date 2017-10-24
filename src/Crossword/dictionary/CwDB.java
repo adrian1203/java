@@ -1,6 +1,4 @@
-package lab2.Crossword.dictionary;
-
-import lab2.Crossword.dictionary.Entry;
+package Crossword.dictionary;
 
 import java.io.*;
 import java.util.LinkedList;

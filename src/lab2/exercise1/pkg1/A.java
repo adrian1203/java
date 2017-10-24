@@ -7,7 +7,15 @@ public class A {
         this.name=name;
         this.number=number;
     }
+
+    public void Calldecrement(){number-=1;}
+    public void  CallchangeName(){name="noweAAAA";}
+    public void callincrement(){number+=1;System.out.println("A");}
     private void increment(){
         number+=1;
     }
+    protected void decrement(){number+=1;}
+    void changeName(){name="nowe";}
+
+
 }

@@ -1,4 +1,4 @@
-package lab2.Crossword.dictionary;
+package Crossword.dictionary;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -16,7 +16,6 @@ public class InteliCwDB extends CwDB {
         Pattern pat = Pattern.compile(pattern);
         LinkedList<Entry> list = new LinkedList<Entry>();
         for (Entry x : this.dict) {
-            //System.out.println("chuj");
             Matcher matcher = pat.matcher(x.getWord());
             if (matcher.find() == true) {
                 list.add(x);
@@ -59,7 +58,7 @@ public class InteliCwDB extends CwDB {
 
     public void add(String word, String clue) {
         Entry tmp=new Entry(word, clue);
-        this.dict.addFirst(new Entry(word,clue));
+        this.dict.add(new Entry(word,clue));
        /* int i=0;
         if(dict.size()==0){
             this.dict.add(tmp);
@@ -76,13 +75,5 @@ public class InteliCwDB extends CwDB {
         Collections.sort(dict);
     }
 
-    public static class main {
-        public static void main(String [] args)throws IOException{
-            //CwDB tmp=new CwDB("C:/Users/Adrian/Desktop/cwdb.txt");
-            InteliCwDB tmp1=new InteliCwDB("C:/Users/Adrian/Desktop/cwdb.txt");
-            //Entry cos=tmp1.getRandom("^A.*");
-            tmp1.Print();
 
-        }
-    }
 }
