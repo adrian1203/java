@@ -47,13 +47,13 @@ public class Polibiusz implements Algorithm {
             int tmp = Integer.parseInt(matcher.group(1));
             String w = "";
             int y = (tmp % 10)-1;
-            System.out.println(y);
+            //System.out.println(y);
             int x = (tmp / 10)-1;
-            System.out.println(x);
+            //System.out.println(x);
             w += polibiuszMatrix[x][y];
             //System.out.println(w);*/
             return w;
-        } else return " ";
+        } else return "  ";
 
     }
 }

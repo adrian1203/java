@@ -9,21 +9,12 @@ public class main {
         Cryptographer tmp= new Cryptographer();
         ROT11 rot= new ROT11();
         Polibiusz pol=new Polibiusz();
-        System.out.println("Szyfrowanie polbiusz 1 \n Szyfrowanie ROT11 2 \n Deszyfrwanie polbiusz 3 \n Deszyfrowanie Rot11 4");
-        int c=JIn.getInt();
-        switch (c){
-            case 1:
-                tmp.crypyfile(args[0], args[1], pol);
-                break;
-            case 2:
-                tmp.crypyfile(args[0], args[1], rot);
-                break;
-            case 3:
-                tmp.decrypyfile(args[0], args[1], pol);
-                break;
-            case 4:
-                tmp.decrypyfile(args[0], args[1], rot);
-        }
+
+        //tmp.crypyfile("C:/Users/Adrian/Desktop/pliki/pusty.txt","C:/Users/Adrian/Desktop/pliki/szyfr.txt", rot );
+        //tmp.decrypyfile("C:/Users/Adrian/Desktop/pliki/szyfr.txt", "C:/Users/Adrian/Desktop/pliki/deszyfr.txt", rot);
+
+       tmp.crypyfile("C:/Users/Adrian/Desktop/pliki/pusty.txt","C:/Users/Adrian/Desktop/pliki/szyfr1.txt", pol );
+       tmp.decrypyfile("C:/Users/Adrian/Desktop/pliki/szyfr1.txt", "C:/Users/Adrian/Desktop/pliki/deszyfr1.txt", pol);
 
     }
 }

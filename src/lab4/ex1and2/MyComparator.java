@@ -4,6 +4,7 @@ import lab3.ex2.Shape;
 
 import java.util.Comparator;
 
+/*
 public class MyComparator implements Comparator<Shape> {
     @Override
     public int compare(Shape o1, Shape o2) {
@@ -12,3 +13,4 @@ public class MyComparator implements Comparator<Shape> {
         else return 0;
     }
 }
+*/

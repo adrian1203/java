@@ -16,6 +16,6 @@ public class Entry implements Comparable<Entry>{
         return clue;
     }
     public int compareTo(Entry o){
-        return word.compareTo(o.word);
+        return this.word.compareTo(o.word);
     }
 }

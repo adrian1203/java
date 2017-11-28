@@ -31,14 +31,12 @@ public class Matrix {
         this.y = y;
         tab = new int[x][y];
     }
-    public Matrix(String filename)throws  IOException{
 
-            FileReader brr = new FileReader(filename);
-            BufferedReader br = new BufferedReader(brr);
+    public Matrix(String filename) throws IOException {
+
+        FileReader brr = new FileReader(filename);
+        BufferedReader br = new BufferedReader(brr);
         try {
-            if (br == null) {
-              //  throw new IOException("zły plik");
-            }
             String line = br.readLine();
             LinkedList<String> value = new LinkedList<String>();
             int x = 0;
@@ -47,12 +45,15 @@ public class Matrix {
                 y = 0;
                 String tmp[] = line.split(",");
                 for (String i : tmp) {
+
                     value.add(i);
                     y += 1;
                 }
+
                 x += 1;
                 line = br.readLine();
             }
+
             this.x = x;
             this.y = y;
             tab = new int[x][y];
@@ -61,8 +62,9 @@ public class Matrix {
                     tab[i][j] = Integer.parseInt(value.removeFirst());
                 }
             }
-        }
-        finally {
+        } catch (IOException e) {
+            throw e;
+        } finally {
             br.close();
         }
 
@@ -70,7 +72,8 @@ public class Matrix {
     }
 
     public Matrix add(Matrix m) throws MatrixDimensionException {
-        if (x != m.x || y != m.y) { throw new MatrixDimensionException();
+        if (x != m.x || y != m.y) {
+            throw new MatrixDimensionException();
             /*System.out.println("Rózne wymiary");
             return new Matrix(2, 2);*/
         }
@@ -83,8 +86,9 @@ public class Matrix {
         return matrix;
     }
 
-    public Matrix sub(Matrix m) throws MatrixDimensionException{
-        if (x != m.x || y != m.y) { throw new MatrixDimensionException();
+    public Matrix sub(Matrix m) throws MatrixDimensionException {
+        if (x != m.x || y != m.y) {
+            throw new MatrixDimensionException();
 
         }
         Matrix matrix = new Matrix(x, y);
@@ -97,11 +101,12 @@ public class Matrix {
     }
 
     public Matrix mul(Matrix m) throws MatrixDimensionException {
-        if (y != m.x) {  throw new MatrixDimensionException();
+        if (x != m.y) {
+            throw new MatrixDimensionException();
             /*System.out.println("rózne wymiary");
             return new Matrix(2, 2);*/
         }
-        Matrix matrix = new Matrix(this.x,m.y);
+        Matrix matrix = new Matrix(this.x, m.y);
         int i, j, k;
         for (i = 0; i < x; i++)
             for (j = 0; j < matrix.y; j++) {

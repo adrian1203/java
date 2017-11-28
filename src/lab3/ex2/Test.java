@@ -1,3 +1,4 @@
+/*
 package lab3.ex2;
 
 import javafx.scene.shape.Circle;
@@ -9,3 +10,4 @@ public class Test {
 
     }
 }
+*/

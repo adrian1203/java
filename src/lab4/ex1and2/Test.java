@@ -1,4 +1,4 @@
-package lab4.ex1and2;
+/*package lab4.ex1and2;
 import lab3.ex2.*;
 
 import java.util.Collections;
@@ -18,4 +18,4 @@ public class Test  {
         list.print();
 
     }
-}
+}*/

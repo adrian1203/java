@@ -1,3 +1,4 @@
+/*
 package lab4.ex1and2;
 
 import lab3.ex2.Shape;
@@ -22,3 +23,4 @@ public class List {
     }
 }
 
+*/

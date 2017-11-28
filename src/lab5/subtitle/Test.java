@@ -8,16 +8,19 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Test  {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
         try {
             MicroDvd dvd=new MicroDvd();
-            dvd.deley("C:/Users/Adrian/Desktop/pliki/orginal.txt","C:/Users/Adrian/Desktop/pliki/in.txt",300,25);
+            dvd.deley("C:/Users/Adrian/Desktop/pliki/orginal.txt","C:/Users/Adrian/Desktop/pliki/out.txt",300,25);
         }
         catch (DiffrentFormat e){
             e.print();
         }
         catch (SubtitleEndBeforeStart e){
             e.print();
+        }
+        catch (IOException e){
+            e.getMessage();
         }
 
 

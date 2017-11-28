@@ -10,7 +10,6 @@ public class Cryptographer {
         while(tmp!=null){
             String [] parts=tmp.split(" ");
             for(String x:parts){
-                System.out.println(x);
                 writer.append(algo.crypt(x));
             }
             tmp=reader.readLine();
