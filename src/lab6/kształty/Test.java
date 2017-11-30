@@ -1,4 +1,4 @@
-package lab6.ex1;
+package lab6.kształty;
 
 import lab3.ex2.circle;
 import lab3.ex2.rectangle;

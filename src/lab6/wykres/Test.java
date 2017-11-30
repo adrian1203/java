@@ -1,11 +1,9 @@
-package lab6.ex2;
+package lab6.wykres;
 
 import myPackage.JIn;
 
-import javax.print.attribute.standard.MediaSize;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {

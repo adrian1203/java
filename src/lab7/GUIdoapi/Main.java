@@ -1,4 +1,4 @@
-package lab7.GUI;
+package lab7.GUIdoapi;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

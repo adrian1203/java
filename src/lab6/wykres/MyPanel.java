@@ -1,4 +1,4 @@
-package lab6.ex2;
+package lab6.wykres;
 import static java.lang.Math.*;
 import javax.swing.*;
 import java.awt.*;

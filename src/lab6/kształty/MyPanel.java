@@ -1,4 +1,4 @@
-package lab6.ex1;
+package lab6.kształty;
 
 import lab3.ex2.*;
 import lab3.ex2.Shape;
@@ -9,7 +9,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class MyPanel extends JPanel implements MouseListener, MouseMotionListener {
     circle kolo;

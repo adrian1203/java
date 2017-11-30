@@ -1,7 +1,6 @@
-package lab7.GUI;
+package lab7.GUIdoapi;
 
 import io.indico.api.utils.IndicoException;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
@@ -10,16 +9,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import kolos.comarator.lista;
 import lab6.api.*;
 import javafx.event.ActionEvent;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.Window;
 
 import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 public class Controller {
     public ListView<String> list;

@@ -1,4 +1,4 @@
-package lab6.ex1;
+package lab6.kształty;
 
 import java.awt.*;
 import java.awt.event.*;
