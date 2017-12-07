@@ -6,8 +6,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="440.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab8.bazadanych.Controller">
+<AnchorPane prefHeight="440.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab8.bazadanych.Controller">
    <children>
       <Pane fx:id="panelFrom" layoutX="36.0" layoutY="91.0" prefHeight="261.0" prefWidth="230.0" visible="false">
          <children>
@@ -26,5 +27,10 @@
       <Button fx:id="isbn_button" layoutX="522.0" layoutY="104.0" mnemonicParsing="false" onAction="#isbnfind" text="Szukaj" />
       <ListView fx:id="listbooks" layoutX="309.0" layoutY="144.0" prefHeight="200.0" prefWidth="302.0" visible="false" />
       <Label layoutX="413.0" layoutY="30.0" prefHeight="25.0" prefWidth="134.0" text="Książki w bazie danych" />
+      <Label fx:id="error" layoutY="380.0" prefHeight="53.0" prefWidth="356.0" textFill="#f21d1d">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Pane fx:id="errPanel" layoutX="264.0" layoutY="314.0" prefHeight="92.0" prefWidth="171.0" visible="false" />
    </children>
 </AnchorPane>

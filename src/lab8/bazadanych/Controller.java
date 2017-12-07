@@ -1,5 +1,6 @@
 package lab8.bazadanych;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,6 +30,8 @@ public class Controller {
     public DB db = new DB();
     public TextField find_author;
     public TextField isbnfind;
+    public Label error;
+    public Pane errPanel;
 
 
     public void add_books(ActionEvent actionEvent) {
@@ -43,13 +46,20 @@ public class Controller {
      else{
          emptyFormLabel.setText("");
          Book book=new Book(isbn, title, author, year);
-         db.addbook(book);
+         try {
+             db.addbook(book);
+         }
+         catch (ConnectException  e){
+             error.setText(e.printError());
+             errPanel.setVisible(true);
+         }
          isbn_field.clear();
          title_field.clear();
          year_field.clear();
          author_field.clear();
          addBooks.setText("Dodaj kolejną książke");
          panelFrom.setVisible(false);
+
      }
     }
 
@@ -58,13 +68,26 @@ public class Controller {
     }
 
     public void authorfind(ActionEvent actionEvent) {
-        db.searchauthor(find_author.getText());
+        try {
+            db.searchauthor(find_author.getText());
+        }
+        catch (ConnectException e){
+            error.setText(e.printError());
+            errPanel.setVisible(true);
+        }
         Viewlist();
 
     }
 
-    public void isbnfind(ActionEvent actionEvent) {
-        db.searchIsbn(isbnfind.getText());
+    public void isbnfind(ActionEvent actionEvent)
+    {
+        try {
+            db.searchIsbn(isbnfind.getText());
+        }
+        catch (ConnectException e){
+            error.setText(e.printError());
+            errPanel.setVisible(true);
+        }
         Viewlist();
 
     }

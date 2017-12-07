@@ -7,7 +7,8 @@ public class Test {
        // db.connect();;
         //db.searchauthor("Pamuk");
         //db.searchIsbn("12364");
-        db.searchauthor("Dostojewski");
+       // db.searchauthor("Dostojewski");
+        //db.connect();
 
     }
 }

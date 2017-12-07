@@ -10,16 +10,20 @@ public class DB {
     private int  how_many_connect=0;
     public ArrayList<Book> arrayList=new ArrayList<Book>();
 
-    public void connect() {
+    public void connect() throws ConnectException{
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn =
+                    DriverManager.getConnection("jdbc:mysql://mysql.agh.edu.pl/opiela1",
+                            "opiela1a", "QDrSmuGmYAky6NdC");
+          /*  conn =
                     DriverManager.getConnection("jdbc:mysql://localhost:3306/java",
-                            "root", "");
+                            "root", "");*/
 
 
         } catch (SQLException ex) {
             how_many_connect+=1;
+            System.out.println(how_many_connect);
             if(how_many_connect<=3){
                 connect();
             }
@@ -27,12 +31,13 @@ public class DB {
             System.out.println("SQLException: " + ex.getMessage());
             System.out.println("SQLState: " + ex.getSQLState());
             System.out.println("VendorError: " + ex.getErrorCode());
+            throw new ConnectException();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void listname() {
+    public void listname() throws ConnectException{
         try {
             if (conn == null) {
                 connect();
@@ -61,11 +66,12 @@ public class DB {
         }
     }
 
-    public void addbook(Book book) {
+    public void addbook(Book book) throws ConnectException {
         try {
             if (conn == null) {
                 connect();
             }
+            how_many_connect=0;
             stmt = conn.createStatement();
             String query="INSERT INTO  books VALUES ('"+book.getIsbn()+"','"+book.getTitle()+"','"+book.getAuthor()+"','"+book.getYear()+"')";
             stmt.executeUpdate(query);
@@ -74,11 +80,12 @@ public class DB {
         }
     }
 
-    public void searchauthor(String author) {
+    public void searchauthor(String author) throws ConnectException{
         try {
             if (conn == null) {
                 connect();
             }
+            how_many_connect=0;
             stmt = conn.createStatement();
             String query = "SELECT * FROM books WHERE author LIKE '%" + author + "'";
             rs = stmt.executeQuery(query);
@@ -87,7 +94,7 @@ public class DB {
 
         }
     }
-    public void searchIsbn(String isbn) {
+    public void searchIsbn(String isbn) throws ConnectException{
         try {
             if (conn == null) {
                 connect();
