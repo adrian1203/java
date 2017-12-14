@@ -1,4 +1,7 @@
-package lab8.bazadanych;
+package lab8.pracownik;
+
+import lab8.pracownik.Pracownik;
+import lab8.bazadanych.ConnectException;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -8,7 +11,7 @@ public class DB {
     private Statement stmt = null;
     private ResultSet rs = null;
     private int  how_many_connect=0;
-    public ArrayList<Book> arrayList=new ArrayList<Book>();
+    public ArrayList<Pracownik> arrayList=new ArrayList<Pracownik>();
 
     public void connect() throws ConnectException{
         try {
@@ -43,7 +46,7 @@ public class DB {
                 connect();
             }
             stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT * FROM books");
+            rs = stmt.executeQuery("SELECT * FROM pracownicy");
             rsToArray(rs);
         } catch (SQLException ex) {
 
@@ -66,14 +69,14 @@ public class DB {
         }
     }
 
-    public void addbook(Book book) throws ConnectException {
+    public void addbook(Pracownik book) throws ConnectException {
         try {
             if (conn == null) {
                 connect();
             }
             how_many_connect=0;
             stmt = conn.createStatement();
-            String query="INSERT INTO  books VALUES ('"+book.getIsbn()+"','"+book.getTitle()+"','"+book.getAuthor()+"','"+book.getYear()+"')";
+            String query="INSERT INTO  pracownicyy VALUES ('"+book.GetPesel()+"','"+book.GetName()+"','"+book.GetSurname()+"')";
             stmt.executeUpdate(query);
         } catch (SQLException e) {
             System.out.println("Błąd przy dodawaniu ksiązki");
@@ -87,7 +90,7 @@ public class DB {
             }
             how_many_connect=0;
             stmt = conn.createStatement();
-            String query = "SELECT * FROM books WHERE author LIKE '%" + author + "'";
+            String query = "SELECT * FROM pracownicyy WHERE author LIKE '%" + author + "'";
             rs = stmt.executeQuery(query);
             rsToArray(rs);
         } catch (SQLException ex) {
@@ -100,7 +103,7 @@ public class DB {
                 connect();
             }
             stmt = conn.createStatement();
-            String query = "SELECT * FROM books WHERE isbn='" + isbn + "'";
+            String query = "SELECT * FROM pracownicyy WHERE pesel='" + isbn + "'";
             rs = stmt.executeQuery(query);
             rsToArray(rs);
         } catch (SQLException ex) {
@@ -112,9 +115,10 @@ public class DB {
         while (rs.next()) {
             String isbn = rs.getString(1);
             String title = rs.getString(2);
-            String year = rs.getString(4);
-            String author=rs.getString(3);
-            Book book=new Book(isbn, title,year,author);
+            String year = rs.getString(3);
+            System.out.println(title);
+
+            Pracownik book=new Pracownik(isbn, title,year);
             arrayList.add(book);
 
 
