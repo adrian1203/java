@@ -1,3 +1,4 @@
+/*
 package lab9.ex1;
 
 import java.io.*;
@@ -41,3 +42,4 @@ public class EchoClient {
         echoSocket.close();
     }
 }
+*/

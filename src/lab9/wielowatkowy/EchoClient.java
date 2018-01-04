@@ -1,4 +1,9 @@
-package lab9.obslugaSerwera;
+package lab9.wielowatkowy;
+
+import java.io.*;
+import java.net.*;
+
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,6 +11,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Scanner;
 
 public class EchoClient {
 
@@ -16,7 +22,7 @@ public class EchoClient {
 
     public void connect() {
         try {
-            echoSocket = new Socket("localhost", 6666);
+            echoSocket = new Socket("localhost", 6669);
             out = new PrintWriter(echoSocket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(
                     echoSocket.getInputStream()));
@@ -42,7 +48,16 @@ public class EchoClient {
         }
         stdIn.close();
     }
-
+    public void zaloguj(String user) throws IOException {
+        File filee = new File("C:/Users/Adrian/Desktop/pliki/serwer/haslo.txt");
+        Scanner in = new Scanner(filee);
+        String haslo=in.nextLine();
+        while(!haslo.isEmpty()){
+            System.out.println(haslo);
+            if(login(user, haslo).length()==10){System.out.println("ID="+login(user, haslo));break;};
+            haslo=in.nextLine();
+        }
+    }
     public void close() throws IOException {
         out.close();
         in.close();
@@ -50,8 +65,7 @@ public class EchoClient {
         echoSocket.close();
     }
     String login(String login, String password) throws IOException {
-        connect();
-        out.println("LOGIN "+login+" "+password);
+        out.println("LOGIN "+login+";"+password);
         String ID=in.readLine();
         return ID;
     }
@@ -61,5 +75,18 @@ public class EchoClient {
         String answer=in.readLine();
         return answer;
     }
+    String ls(String id) throws IOException {
+        connect();
+        out.println("LS "+id);
+        String answer=in.readLine();
+        return answer;
+    }
+    String get(String id, String file) throws IOException {
+        connect();
+        out.println("LS "+id+" "+file);
+        String answer=in.readLine();
+        return answer;
+    }
 
 }
+

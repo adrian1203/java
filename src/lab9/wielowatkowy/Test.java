@@ -1,17 +1,13 @@
-/*
-
-package lab9.obslugaSerwera;
+package lab9.wielowatkowy;
 
 import java.io.IOException;
 
-public class Main {
+public class Test {
     public static void main(String[] args) throws IOException {
-        Client echoClient=new Client();
+        EchoClient echoClient=new EchoClient();
         echoClient.connect();
+        echoClient.zaloguj("serwer");
         echoClient.echo();
         echoClient.close();
     }
 }
-
-
-*/

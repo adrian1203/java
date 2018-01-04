@@ -26,7 +26,10 @@ public class EchoServer {
         String inputLine;
 
         while ((inputLine = in.readLine()) != null) {
-            out.println(inputLine+"odpowiedz");
+            BufferedReader stdIn = new BufferedReader(
+                    new InputStreamReader(System.in));
+            String userInput=stdIn.readLine();
+            out.println(inputLine+userInput);
         }
         out.close();
         in.close();
