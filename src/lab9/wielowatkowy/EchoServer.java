@@ -1,4 +1,5 @@
 package lab9.wielowatkowy;
+
 import java.io.*;
 import java.net.*;
 import java.util.concurrent.*;
@@ -20,17 +21,21 @@ public class EchoServer {
         ExecutorService executor = Executors.newFixedThreadPool(2);
 
 
-            try {
-                while (true) {
-                    clientSocket = serverSocket.accept();
-                    //new Thread(new NewThread(clientSocket)).start();
-                    executor.submit(new NewThread(clientSocket));
-                }
-            } catch (IOException e) {
-                System.out.println("Accept failed: 6666");
-                System.exit(-1);
+        try {
+            while (true) {
+                clientSocket = serverSocket.accept();
+                blockingQueue.add(new NewThread(clientSocket));
+                //new Thread(new NewThread(clientSocket)).start();
+                executor.submit(blockingQueue.take());
             }
+        } catch (IOException e) {
+            System.out.println("Accept failed: 6666");
+            System.exit(-1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         executor.shutdown();
 
 
-    }}
+    }
+}

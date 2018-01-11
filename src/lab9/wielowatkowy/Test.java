@@ -4,9 +4,8 @@ import java.io.IOException;
 
 public class Test {
     public static void main(String[] args) throws IOException {
-        EchoClient echoClient=new EchoClient();
+        EchoClient echoClient = new EchoClient();
         echoClient.connect();
-        echoClient.zaloguj("serwer");
         echoClient.echo();
         echoClient.close();
     }

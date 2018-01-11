@@ -1,9 +1,5 @@
 package lab9.wielowatkowy;
 
-import java.io.*;
-import java.net.*;
-
-
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.Scanner;
+
 
 public class EchoClient {
 
@@ -41,52 +37,26 @@ public class EchoClient {
                 new InputStreamReader(System.in));
         String userInput;
 
-        System.out.println("Type a message: ");
+        System.out.println("PODAJ KOMENDE: ");
         while ((userInput = stdIn.readLine()) != null) {
             out.println(userInput);
-            System.out.println("echo: " + in.readLine());
+            System.out.println("ODPOWIEDŹ: " + in.readLine());
         }
         stdIn.close();
     }
-    public void zaloguj(String user) throws IOException {
-        File filee = new File("C:/Users/Adrian/Desktop/pliki/serwer/haslo.txt");
-        Scanner in = new Scanner(filee);
-        String haslo=in.nextLine();
-        while(!haslo.isEmpty()){
-            System.out.println(haslo);
-            if(login(user, haslo).length()==10){System.out.println("ID="+login(user, haslo));break;};
-            haslo=in.nextLine();
-        }
-    }
+
+
+
     public void close() throws IOException {
         out.close();
         in.close();
 
         echoSocket.close();
     }
-    String login(String login, String password) throws IOException {
-        out.println("LOGIN "+login+";"+password);
-        String ID=in.readLine();
-        return ID;
-    }
-    String logout(String id) throws IOException {
-        connect();
-        out.println("LOGOUT "+id);
-        String answer=in.readLine();
-        return answer;
-    }
-    String ls(String id) throws IOException {
-        connect();
-        out.println("LS "+id);
-        String answer=in.readLine();
-        return answer;
-    }
-    String get(String id, String file) throws IOException {
-        connect();
-        out.println("LS "+id+" "+file);
-        String answer=in.readLine();
-        return answer;
-    }
+
+
+
+
 
 }
 
